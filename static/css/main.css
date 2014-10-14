@@ -1,0 +1,11 @@
+.white, .white a {
+  color: #fff;
+}
+
+.grey {
+    background-color: #8C8E87;
+}
+
+.grey:hover {
+    background-color: #2B3E50;
+}
