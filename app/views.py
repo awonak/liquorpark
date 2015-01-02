@@ -15,13 +15,13 @@ def proprietors(request):
 def contact(request):
     # form submission
     if request.method == "POST":
-        # send email to shop@drinkliquorpark.com
+        # send email to team@drinkliquorpark.com
         sg = sendgrid.SendGridClient(
             os.getenv('SENDGRID_USERNAME'),
             os.getenv('SENDGRID_PASSWORD')
         )
         message = sendgrid.Mail(
-            to='shop@drinkliquorpark.com',
+            to='team@drinkliquorpark.com',
             subject='Website Inquiry',
             html=request.POST.get('message'),
             text=request.POST.get('message'),
