@@ -13,6 +13,8 @@ def proprietors(request):
     return render(request, 'proprietors.html')
 
 def contact(request):
+    status = None
+    msg = None
     # form submission
     if request.method == "POST":
         # send email to team@drinkliquorpark.com
