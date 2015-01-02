@@ -22,18 +22,16 @@ def contact(request):
             os.getenv('SENDGRID_USERNAME'),
             os.getenv('SENDGRID_PASSWORD')
         )
-        message = sendgrid.Mail(
-            to='team@drinkliquorpark.com',
-            subject='Website Inquiry',
-            html=request.POST.get('message'),
-            text=request.POST.get('message'),
-            from_email=request.POST.get('from')
-        )
+        message = sendgrid.Mail()
+        message.add_to('team@drinkliquorpark.com')
+        message.set_subject('Website Inquiry')
+        message.set_text(request.POST.get('message'))
+        message.set_from(request.POST.get('from'))
         status, msg = sg.send(message)
-        #return redirect('contact-thanks')
+        if status == 200:
+            return redirect('contact-thanks')
 
-    return render(request, 'contact.html', {'status': status, 'msg': msg})
+    return render(request, 'contact.html', msg)
 
 def contact_thanks(request):
     return render(request, 'contact-thanks.html')
-
