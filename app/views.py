@@ -28,9 +28,9 @@ def contact(request):
             from_email=request.POST.get('from')
         )
         status, msg = sg.send(message)
-        return redirect('contact-thanks')
+        #return redirect('contact-thanks')
 
-    return render(request, 'contact.html')
+    return render(request, 'contact.html', {'status': status, 'msg': msg})
 
 def contact_thanks(request):
     return render(request, 'contact-thanks.html')
