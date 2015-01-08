@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     url(r'^proprietors$', 'app.views.proprietors', name='proprietors'),
     url(r'^contact$', 'app.views.contact', name='contact'),
     url(r'^contact/thanks$', 'app.views.contact_thanks', name='contact-thanks'),
+    url(r'^margincalc$', 'app.views.margincalc', name='margincalc'),
 
 
     #url(r'^admin/', include(admin.site.urls)),

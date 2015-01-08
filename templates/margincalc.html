@@ -1,0 +1,64 @@
+{% verbatim %}
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<style>
+h1 {
+    margin-left: 13px;
+}
+label {
+    display:block;
+}
+</style>
+</head>
+
+<body>
+
+<div ng-app="">
+    <h1>Margin Calculator</h1>
+
+    <div class="row center-block">
+        <form class="form-inline">
+            <div class="form-group col-md-3">
+                <label for="cost">Cost</label>
+                <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input type="text" ng-model="cost" class="form-control" id="cost" placeholder="0.00">
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="revenue">Revenue</label>
+                <div class="input-group">
+                    <div class="input-group-addon">$</div>
+                    <input type="text" ng-model="revenue" class="form-control" id="revenue" placeholder="0.00">
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <br/>
+
+    <div class="row center-block">
+
+        <div class="col-md-6">
+        <table class="table table-bordered ">
+        <tr>
+            <td><strong>Gross Margin</strong></td><td><strong>{{ ((revenue - cost) / revenue) * 100 | number:2 }}%</strong></td>
+        </tr>
+        <tr>
+            <td>Mark up</td><td>{{ ((revenue - cost) / cost) * 100 | number:2 }}%</td>
+        </tr>
+        <tr>
+            <td>Gross Profit</td><td>{{ revenue - cost | currency }}</td>
+        </tr>
+        </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+{% endverbatim %}

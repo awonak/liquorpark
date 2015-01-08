@@ -35,3 +35,6 @@ def contact(request):
 
 def contact_thanks(request):
     return render(request, 'contact-thanks.html')
+
+def margincalc(request):
+    return render(request, 'margincalc.html')
