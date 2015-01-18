@@ -24,7 +24,7 @@ def contact(request):
         )
         message = sendgrid.Mail()
         message.add_to('team@drinkliquorpark.com')
-        message.set_subject('Website Inquiry')
+        message.set_subject('Contact Submission from drinkliquorpark.com')
         message.set_text(request.POST.get('message'))
         message.set_from(request.POST.get('from'))
         status, msg = sg.send(message)
