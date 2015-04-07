@@ -2,6 +2,10 @@ import os
 import sendgrid
 from django.shortcuts import render, redirect
 
+from opengraph import OpenGraph
+
+from .models import Article
+
 
 def index(request):
     return render(request, 'index.html')
@@ -43,6 +47,18 @@ def contact_thanks(request):
 
 def events(request):
     return render(request, 'events.html')
+
+
+def press(request):
+    articles = Article.objects.all()
+    for article in articles:
+        og = OpenGraph(url=article.url)
+        article.og_meta = og
+
+    context = {
+        'articles': articles,
+    }
+    return render(request, 'press.html', context)
 
 
 def margincalc(request):
