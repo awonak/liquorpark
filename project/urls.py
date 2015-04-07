@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import patterns, url
 from django.contrib import admin
 
 
@@ -8,8 +8,9 @@ urlpatterns = patterns('',
     url(r'^proprietors$', 'app.views.proprietors', name='proprietors'),
     url(r'^contact$', 'app.views.contact', name='contact'),
     url(r'^contact/thanks$', 'app.views.contact_thanks', name='contact-thanks'),
-    url(r'^margincalc$', 'app.views.margincalc', name='margincalc'),
+    url(r'^events$', 'app.views.events', name='events'),
 
+    url(r'^clover/margincalc$', 'app.views.margincalc', name='margincalc'),
 
     #url(r'^admin/', include(admin.site.urls)),
 )

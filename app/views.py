@@ -6,11 +6,14 @@ from django.shortcuts import render, redirect
 def index(request):
     return render(request, 'index.html')
 
+
 def about(request):
     return render(request, 'about.html')
 
+
 def proprietors(request):
     return render(request, 'proprietors.html')
+
 
 def contact(request):
     status = None
@@ -33,8 +36,14 @@ def contact(request):
 
     return render(request, 'contact.html', msg)
 
+
 def contact_thanks(request):
     return render(request, 'contact-thanks.html')
+
+
+def events(request):
+    return render(request, 'events.html')
+
 
 def margincalc(request):
     return render(request, 'margincalc.html')
