@@ -8,7 +8,6 @@ gunicorn==19.0.0
 html5lib==1.0b3
 linecache2==1.0.0
 opengraph==0.5
-pyRdfa==2.3.7
 rdflib==2.4.2
 sendgrid==1.1.2
 six==1.9.0
