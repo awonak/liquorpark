@@ -9,3 +9,7 @@
 .grey:hover {
     background-color: #2B3E50;
 }
+
+.list-group .link {
+    color: #df691a
+}
