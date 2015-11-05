@@ -19,6 +19,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'yls)_rq!ifat4!td*k4=d6wpa17w-qfjf0^@a!0hj=n4(w7j#='
 
+# Browser API Key:
+CAL_API_KEY = os.getenv('CAL_API_KEY', 'AIzaSyDBruUyXT4ongYpGmGGLymWGKI1KCwA_X8')
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('LP_DEBUG', True)
 
@@ -64,6 +67,15 @@ DATABASES = {
     }
 }
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'liquorpark',
+    }
+}
+
+CACHE_SHORT = 60 * 60 * 2  # 2 hours
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
@@ -83,7 +95,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+    # os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'layout_2015'),
 )
 
 

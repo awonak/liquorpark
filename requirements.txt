@@ -8,7 +8,9 @@ gunicorn==19.0.0
 html5lib==1.0b3
 linecache2==1.0.0
 opengraph==0.5
+python-dateutil==2.4.2
 rdflib==2.4.2
+requests==2.8.1
 sendgrid==1.1.2
 six==1.9.0
 smtpapi==0.1.2

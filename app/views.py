@@ -1,22 +1,56 @@
 import os
+import requests
 import sendgrid
-from django.shortcuts import render, redirect
+from dateutil.parser import parse
 
-from opengraph import OpenGraph
+from datetime import datetime
+from django.conf import settings
+from django.core.cache import cache
+from django.shortcuts import render, redirect
 
 from .models import Article
 
 
+def _events():
+
+    events = cache.get('events')
+
+    if not events:
+
+        # Next 10 Events:
+        url = 'https://www.googleapis.com/calendar/v3/calendars/drinkliquorpark.com_vo211klng2c69ho2lafbqr91io%40group.calendar.google.com/events?maxResults=10&orderBy=startTime&singleEvents=true&timeMin={}T00:00:00-07:00&key={}'.format(
+            datetime.now().strftime("%Y-%m-%d"),
+            settings.CAL_API_KEY,
+        )
+        events = requests.get(url)
+        events = events.json().get('items', [])
+
+        date_fmt = "%A %g/%-d/%Y"
+        time_fmt = "%-I:%M %p"
+
+        for e in events:
+            if 'date' in e['start']:
+                e['start']['date'] = parse(e['start']['date']).strftime(date_fmt)
+            if 'dateTime' in e['start']:
+                e['start']['date'] = parse(e['start']['dateTime']).strftime(date_fmt)
+                e['start']['dateTime'] = parse(e['start']['dateTime']).strftime(time_fmt)
+            if 'date' in e['end']:
+                e['end']['date'] = parse(e['end']['date']).strftime(date_fmt)
+            if 'dateTime' in e['end']:
+                e['end']['date'] = parse(e['end']['dateTime']).strftime(date_fmt)
+                e['end']['dateTime'] = parse(e['end']['dateTime']).strftime(time_fmt)
+
+        cache.set(events, 'events', settings.CACHE_SHORT)
+
+    return events
+
+
 def index(request):
-    return render(request, 'index.html')
-
-
-def about(request):
-    return render(request, 'about.html')
-
-
-def proprietors(request):
-    return render(request, 'proprietors.html')
+    context = {
+        'articles': Article.objects.all(),
+        'events': _events(),
+    }
+    return render(request, 'index.html', context)
 
 
 def contact(request):
@@ -43,22 +77,6 @@ def contact(request):
 
 def contact_thanks(request):
     return render(request, 'contact-thanks.html')
-
-
-def events(request):
-    return render(request, 'events.html')
-
-
-def press(request):
-    articles = Article.objects.all()
-    for article in articles:
-        og = OpenGraph(url=article.url)
-        article.og_meta = og
-
-    context = {
-        'articles': articles,
-    }
-    return render(request, 'press.html', context)
 
 
 def margincalc(request):
