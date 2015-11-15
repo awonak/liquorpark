@@ -318,6 +318,15 @@ header .tel {
     padding-left: 0;
 }
 
+.overlay {
+   background:transparent;
+   position:relative;
+   width:640px;
+   height:480px; /* your iframe height */
+   top:480px;  /* your iframe height */
+   margin-top:-480px;  /* your iframe height */
+}
+
 
 /*events container*/
 
@@ -502,7 +511,7 @@ footer div {
     .aboutWineClub {
         padding: 15px;
     }
-    .tableLayout [class*="col-"] 
+    .tableLayout [class*="col-"]
     {
         padding:15px;
     }
@@ -531,7 +540,7 @@ footer div {
         margin: 0;
     }
 }
-@media (max-width: 460px) { 
+@media (max-width: 460px) {
 
     header .contact .socialMedia,
     header .contact .contactInfo {

@@ -18,7 +18,7 @@ def _events():
     if not events:
 
         # Next 10 Events:
-        url = 'https://www.googleapis.com/calendar/v3/calendars/drinkliquorpark.com_vo211klng2c69ho2lafbqr91io%40group.calendar.google.com/events?maxResults=10&orderBy=startTime&singleEvents=true&timeMin={}T00:00:00-07:00&key={}'.format(
+        url = 'https://www.googleapis.com/calendar/v3/calendars/drinkliquorpark.com_vo211klng2c69ho2lafbqr91io%40group.calendar.google.com/events?maxResults=3&orderBy=startTime&singleEvents=true&timeMin={}T00:00:00-07:00&key={}'.format(
             datetime.now().strftime("%Y-%m-%d"),
             settings.CAL_API_KEY,
         )
@@ -40,7 +40,7 @@ def _events():
                 e['end']['date'] = parse(e['end']['dateTime']).strftime(date_fmt)
                 e['end']['dateTime'] = parse(e['end']['dateTime']).strftime(time_fmt)
 
-        cache.set(events, 'events', settings.CACHE_SHORT)
+        cache.set('events', events, settings.CACHE_SHORT)
 
     return events
 
