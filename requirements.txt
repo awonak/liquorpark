@@ -1,9 +1,7 @@
 beautifulsoup4==4.3.2
-dj-database-url==0.3.0
 dj-static==0.0.6
 Django==1.7
 django-suit==0.2.12
-django-toolbelt==0.0.1
 funcsigs==0.4
 gunicorn==19.0.0
 html5lib==1.0b3
