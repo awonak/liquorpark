@@ -81,7 +81,7 @@ CACHE_SHORT = 60 * 60 * 2  # 2 hours
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Chicago'
 
 USE_I18N = True
 
@@ -109,3 +109,14 @@ from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
 TEMPLATE_CONTEXT_PROCESSORS = TCP + (
     'django.core.context_processors.request',
 )
+
+# Shop Hours
+HOURS = [
+    (13, 20),  # Mon
+    (12, 21),  # Tue
+    (12, 21),  # Wed
+    (12, 21),  # Thu
+    (12, 22),  # Fri
+    (12, 22),  # Sat
+    (12, 20),  # Sun
+]

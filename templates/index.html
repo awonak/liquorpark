@@ -38,8 +38,7 @@
                     <a href="https://twitter.com/drinkliquorpark" class="sprite twitterIcon">Twitter</a>
                 </div>
                 <div class="contactInfo">
-                    <p>Open Now until <span>10pm</span></p>
-                    <!-- <p>Closed Now</p> -->
+                    <p>{{ hours.current }}</p>
                     <address>1937 W North Ave, Chicago, IL</address>
                     <p class="tel">(773) 360-5536</p>
                 </div>
@@ -73,41 +72,13 @@
                 <div class="hoursInner">
                     <table class="hoursTable">
                         <tbody>
+                            {% for hour in hours %}
                             <tr>
-                                <th scope="row">Mon</th>
-                                <td>1 pm&#8211;8 pm</td>
-                                <td class="extra"></td>
+                                <th scope="row">{{ hour.dow }}</th>
+                                <td>{{ hour.open }} - {{ hour.close }}</td>
+                                <td class="extra">{% if hour.open_now %}Open{% endif %}</td>
                             </tr>
-                            <tr>
-                                <th scope="row">Tue</th>
-                                <td>12 pm&#8211;9 pm</td>
-                                <td class="extra"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Wed</th>
-                                <td>12 pm&#8211;9 pm</td>
-                                <td class="extra"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Thu</th>
-                                <td>12 pm&#8211;9 pm</td>
-                                <td class="extra"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Fri</th>
-                                <td>12 pm&#8211;10 pm</td>
-                                <td class="extra"></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Sat</th>
-                                <td>12 pm&#8211;10 pm</td>
-                                <td class="extra">Open</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Sun</th>
-                                <td>12 pm&#8211;8 pm</td>
-                                <td class="extra"></td>
-                            </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>

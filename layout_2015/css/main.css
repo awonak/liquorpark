@@ -311,6 +311,7 @@ header .tel {
 .hoursContain th,
 .hoursContain td {
     padding: 5px;
+    white-space: nowrap;
 }
 
 .hoursContain th {
