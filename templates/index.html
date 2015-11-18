@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Liquor Park: </title>
-    <meta name="description" content="">
+    <meta name="description" content="A Neighborhood Brewtique located in Wicker Park, Chicago. Purveyors of cult-favorite beers, sought-after spirits, and small-batch wines from around the world, including artisan and made-in-the-Midwest products you can’t get just anywhere.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
@@ -38,8 +38,9 @@
                     <a href="https://twitter.com/drinkliquorpark" class="sprite twitterIcon">Twitter</a>
                 </div>
                 <div class="contactInfo">
+                    <!-- Open Now until 9 pm -->
                     <p>{{ hours.current }}</p>
-                    <address>1937 W North Ave, Chicago, IL</address>
+                    <address>1937 W. North Ave., Chicago, IL</address>
                     <p class="tel">(773) 360-5536</p>
                 </div>
             </div>
@@ -61,13 +62,13 @@
             </div>
         </section>
         <section id="About_Us" class="row">
-            <h2 class="col-sm-12">About</h2>
-            <p class="col-sm-6">At Liquor Park we’re passionate about thoughtful, carefully crafted beverages. By tapping our combined twenty years’ experience in the Chicago industry, we’ve curated a collection of cult-favorite beers, sought-after spirits, and small-batch wines from around the world, including artisan and made in the Midwest products you can’t get just anywhere.</p>
+            <h2 class="col-sm-12"></h2>
+            <p class="col-sm-6">At Liquor Park we’re passionate about thoughtful, carefully crafted beverages. By tapping our combined twenty years’ experience in the Chicago industry, we’ve curated a collection of cult-favorite beers, sought-after spirits, and small-batch wines from around the world, including artisan and made-in-the-Midwest products you can’t get just anywhere.</p>
             <p class="col-sm-6">Our shelves are stocked and we’re ready to deliver spot-on pairings and killer recommendations for any palate, budget, or occasion. Come find us in the heart of Wicker Park–Bucktown, just east of the intersection of North, Damen, and Milwaukee Avenues at 1937 West North Avenue.
-                <br> Email: <a href="mailto:shop@drinkliquorpark.com">shop@drinkliquorpark.com</a></p>
+                <br> E-mail: <a href="mailto:shop@drinkliquorpark.com">shop@drinkliquorpark.com</a></p>
         </section>
         <section id="Hours_Location" class="row">
-            <h2 class="col-sm-12">Hours and Location</h2>
+            <h2 class="col-sm-12">Shop Hours and Location</h2>
             <div class="hoursContain col-sm-3">
                 <div class="hoursInner">
                     <table class="hoursTable">
@@ -76,7 +77,7 @@
                             <tr>
                                 <th scope="row">{{ hour.dow }}</th>
                                 <td>{{ hour.open }} - {{ hour.close }}</td>
-                                <td class="extra">{% if hour.open_now %}Open{% endif %}</td>
+                                <td class="extra">{% if hour.open_now %}Open Now{% endif %}</td>
                             </tr>
                             {% endfor %}
                         </tbody>
@@ -127,30 +128,32 @@
             </div>
         </section>
         <section id="Wine_Club" class="row">
-            <h2 class="col-sm-12">Wine Club</h2>
+            <h2 class="col-sm-12">Liquor Park Wine Club</h2>
             <div class="tableLayout">
                 <div class="col-sm-6 wineClubImg card"></div>
                 <div class="col-sm-6 wineClubContain">
                     <div class="aboutWineClub">
-                        <h3>The Wine Club is the best way to experience the wines that Liquor Park has to offer.</h3>
-                        <p> Each month the staff brings you wines that are hand selected, limited release and great finds. Some months we may bring you staff favorites or some wines that are a bit more esoteric to broaden your palate. As with any club there are a number of other benefits for becoming a member after you choose between one of the following options:</p>
-                        <h3>JV Membership $39.99/month</h3>
-                        <p>With this member pass the Liquor Park team brings you two wines that will normally retail for about $50-$60. Most wines we choose have a great story to tell, pair with the season, or are just a great find.</p>
-                        <h3>A-Team $89.99/month</h3>
-                        <p> This is a unique club. Think California Cult wines, Estate grown grapes that are limited production and limited distribution. Occasionally there maybe a bottle of unique scotch or whiskey instead of wine.</p>
-                        <h3>More BENEFITS upon JOINING THE LIQUOR PARK WINE CLUB</h3>
-                        <p>In addition to our great monthly wines, you will also receive:
-                            <br> -10% off everything in the shop... EVERY DAY!
-                            <br> -15% off (at least) all wines featured in either wine club that month
-                            <br> -15% off case purchases of wine.</p>
-                        <p>
-                            Talk to us in store to sign up!</p>
+                        <h3>The Liquor Park Wine Club is the best way to experience our wines!</h3>
+                        <p>Once a month we hand-select a few great wines and set them aside exclusively for members of the Liquor Park Wine Club. Our monthly selections feature limited releases and staff favorites that are sure to please, and from time to time we'll introduce your palate to something a bit more esoteric, unexpected, and exciting.</p>
+                        <p>In addition to our great monthly wine selections, Wine Club members also receive:</p>
+                            <ul>
+                            <li>10% off everything in the shop... EVERY DAY!
+                            <li>At least 15% off all Wine Club features that month.
+                            <li>15% off case purchases of wine.
+                            </ul>
+                        <p>The Liquor Park Wine Club offers two membership levels:</p>
+                        <h3>Intramural League ($39.99/month)</h3>
+                        <p>Joining the Intramural League is a perfect way to get in the game. Each month you'll receive two bottles of wine that have a total retail value of $50 to $60. The wines we choose for this level have a story to tell, pair with the season, or are just a great score.</p>
+                        <h3>Varsity Team ($89.99/month)</h3>
+                        <p>Our elite members belong on the Varsity Team. For the wines at this level, think unique and special: limited production and limited distribution, California cult wines, and estate-grown grapes. Each month you'll get two bottles of wine with a total retail value of $100 to $120, and occasionally we'll offer a bottle of unique scotch or whiskey instead of wine.</p>
+
+                        <p>Stop by the store to join the Club!</p>
                     </div>
                 </div>
             </div>
         </section>
         <section id="Press_Mentions" class="row">
-            <h2 class="col-sm-12">Press Mentions</h2>
+            <h2 class="col-sm-12">What Other People Are Saying</h2>
             <div class="pressContainer">
                 {% for article in articles%}
                 <div class="col-lg-4">
