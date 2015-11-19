@@ -547,7 +547,8 @@ footer div {
 (min-resolution: 192dpi) {
     /* Retina-specific stuff here */
     .sprite {
-        background-size: 400px 300px;
+        background-size: 200px 150px;
+        background-image: url('../img/LiquorPark_Sprite_2x.png');
     }
 }
 
