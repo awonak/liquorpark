@@ -363,6 +363,17 @@ header .tel {
     margin-bottom: 10px;
 }
 
+/* Proprietors */
+
+#Proprietors h3 {
+    display: inline;
+    font-weight: normal;
+    font-size:15px;
+}
+
+#Proprietors h3 a {
+    color: #222;
+}
 
 /*wine club*/
 
@@ -384,7 +395,7 @@ header .tel {
 }
 
 .wineClubImg {
-    background: url(../img/Wine.jpg) no-repeat top center;
+    background: url(../img/Wine_sm.jpg) no-repeat top center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
