@@ -306,6 +306,7 @@ header .tel {
 
 .hoursContain table {
     font-size: 18px;
+    color: #BFC2BA;
 }
 
 .hoursContain th,
@@ -317,6 +318,10 @@ header .tel {
 .hoursContain th {
     text-align: left;
     padding-left: 0;
+}
+
+.hoursContain tr.today td {
+    color: white;
 }
 
 .overlay {

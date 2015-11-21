@@ -43,10 +43,13 @@ class Hours(object):
     def __repr__(self):
         return self.__unicode__()
 
-    def open_now(self):
+    def today(self):
         today = datetime.now().weekday() == self.day_of_week
+        return today
+
+    def open_now(self):
         open_now = self._open < datetime.now().time() <= self._close
-        return today and open_now
+        return self.today() and open_now
 
 
 class BusinessHours(list):

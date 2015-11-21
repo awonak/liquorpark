@@ -73,10 +73,14 @@
                     <table class="hoursTable">
                         <tbody>
                             {% for hour in hours %}
-                            <tr>
-                                <th scope="row">{{ hour.dow }}</th>
+                            <tr {% if hour.today %}class="today"{% endif %}>
+                                <td scope="row">{{ hour.dow }}</td>
                                 <td>{{ hour.open }} - {{ hour.close }}</td>
-                                <td class="extra">{% if hour.open_now %}Open{% endif %}</td>
+                                <td class="extra">
+                                    {% if hour.open_now %}Open
+                                    {% elif hour.today %}Closed
+                                    {% endif %}
+                                </td>
                             </tr>
                             {% endfor %}
                         </tbody>
