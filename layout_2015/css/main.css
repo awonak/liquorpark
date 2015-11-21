@@ -322,10 +322,10 @@ header .tel {
 .overlay {
    background:transparent;
    position:relative;
-   width:640px;
-   height:480px; /* your iframe height */
-   top:480px;  /* your iframe height */
-   margin-top:-480px;  /* your iframe height */
+   width:360px;
+   height:345px; /* your iframe height */
+   top:345px;  /* your iframe height */
+   margin-top:-345px;  /* your iframe height */
 }
 
 

@@ -1,4 +1,4 @@
-from datetime import time
+from datetime import datetime, time
 from django.test import TestCase
 from django.conf import settings
 from mock import Mock, patch
@@ -22,7 +22,7 @@ class HoursTestCase(TestCase):
         mock_datetime.now.return_value = early
         self.assertEqual(
             self.bh.current(),
-            "Closed. We will open at 1 PM today"
+            "We'll be open at 1 pm today."
         )
 
     @patch('app.utils.hours.datetime')
@@ -33,18 +33,15 @@ class HoursTestCase(TestCase):
         mock_datetime.now.return_value = current
         self.assertEqual(
             self.bh.current(),
-            "Open Now until 8 PM"
+            "Open today until 8 pm."
         )
 
     @patch('app.utils.hours.datetime')
     def test_late_current(self, mock_datetime):
-        late = Mock()
-        late.hour = 22
-        late.weekday.return_value = 0
-        mock_datetime.now.return_value = late
+        mock_datetime.now.return_value = datetime(2015, 6, 1, 22)
         self.assertEqual(
             self.bh.current(),
-            "Closed at 8 PM today"
+            "Closed. Open tomorrow at 12 pm."
         )
 
     @patch('app.utils.hours.datetime')

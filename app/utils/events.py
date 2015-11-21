@@ -15,10 +15,10 @@ def events():
             datetime.now().strftime("%Y-%m-%d"),
             settings.CAL_API_KEY,
         )
-        events = requests.get(url)
+        events = requests.get(url, timeout=3)
         events = events.json().get('items', [])
 
-        date_fmt = "%A %g/%-d/%Y"
+        date_fmt = "%A %m/%-d/%Y"
         time_fmt = "%-I:%M %p"
 
         for e in events:

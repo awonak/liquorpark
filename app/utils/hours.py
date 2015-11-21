@@ -1,4 +1,4 @@
-from datetime import datetime, time
+from datetime import datetime, time, timedelta
 
 DOW = {
     0: "Mon",
@@ -59,8 +59,10 @@ class BusinessHours(list):
         now = datetime.now()
         cur = self[now.weekday()]
         if now.hour < cur._open.hour:
-            return "Closed. We will open at {} today".format(cur.open)
+            return "We'll be open at {} today.".format(cur.open)
         elif now.hour > cur._close.hour:
-            return "Closed at {} today".format(cur.close)
+            tomorrow = now + timedelta(days=1)
+            tom = self[tomorrow.weekday()]
+            return "Closed. Open tomorrow at {}.".format(tom.open)
         else:
-            return "Open Now until {}".format(cur.close)
+            return "Open today until {}.".format(cur.close)
