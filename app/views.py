@@ -1,22 +1,21 @@
 import os
 import sendgrid
+
+from django.conf import settings
 from django.shortcuts import render, redirect
 
-from opengraph import OpenGraph
-
 from .models import Article
+from .utils.hours import BusinessHours
+from .utils.events import events
 
 
 def index(request):
-    return render(request, 'index.html')
-
-
-def about(request):
-    return render(request, 'about.html')
-
-
-def proprietors(request):
-    return render(request, 'proprietors.html')
+    context = {
+        'articles': Article.objects.all(),
+        'events': events(),
+        'hours': BusinessHours(settings.HOURS),
+    }
+    return render(request, 'index.html', context)
 
 
 def contact(request):
@@ -43,22 +42,6 @@ def contact(request):
 
 def contact_thanks(request):
     return render(request, 'contact-thanks.html')
-
-
-def events(request):
-    return render(request, 'events.html')
-
-
-def press(request):
-    articles = Article.objects.all()
-    for article in articles:
-        og = OpenGraph(url=article.url)
-        article.og_meta = og
-
-    context = {
-        'articles': articles,
-    }
-    return render(request, 'press.html', context)
 
 
 def margincalc(request):

@@ -1,40 +1,249 @@
-{% extends "base.html" %}
 {% load staticfiles %}
+<!DOCTYPE html>
+<html class="no-js">
 
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Bitter:700|Raleway:500,700' rel='stylesheet' type='text/css'>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Liquor Park: </title>
+    <meta name="description" content="A Neighborhood Brewtique located in Wicker Park, Chicago. Purveyors of cult-favorite beers, sought-after spirits, and small-batch wines from around the world, including artisan and made-in-the-Midwest products you can’t get just anywhere.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-{% block content %}
+    <meta property="og:title" content="Liquor Park">
+    <meta property="og:description" content="A Neighborhood Brewtique located in Wicker Park, Chicago. Purveyors of cult-favorite beers, sought-after spirits, and small-batch wines from around the world, including artisan and made-in-the-Midwest products you can’t get just anywhere.">
+    <meta property="og:image" content="{% static 'img/lp_square.png' %}">
+    <meta property="og:type" content="website">
 
-  <h1 class="text-center">
-    <img src="{% static 'img/LiquorPark.png' %}" class="img-responsive center-block" alt="Liquor Park"/>
-  </h1>
-  <p/>
-  <div class="text-center">
-    <h2>Beer, Wine & Liquor</h2>
-    <p>
+    <link rel="apple-touch-icon" sizes="57x57" href="{%  static 'img/favicon/apple-icon-57x57.png' %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{%  static 'img/favicon/apple-icon-60x60.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{%  static 'img/favicon/apple-icon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{%  static 'img/favicon/apple-icon-76x76.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{%  static 'img/favicon/apple-icon-114x114.png' %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{%  static 'img/favicon/apple-icon-120x120.png' %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{%  static 'img/favicon/apple-icon-144x144.png' %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{%  static 'img/favicon/apple-icon-152x152.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{%  static 'img/favicon/apple-icon-180x180.png' %}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{%  static 'img/favicon/android-icon-192x192.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{%  static 'img/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{%  static 'img/favicon/favicon-96x96.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{%  static 'img/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
 
-      <a href="https://www.facebook.com/drinkliquorpark"><button class="btn btn-large btn-facebook"><i class="fa fa-facebook"></i> | Like on Facebook</button></a>
+    <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap_grid.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flexslider.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <script src="{% static 'js/vendor/modernizr-2.7.1.min.js' %}"></script>
+    <!--[if lt IE 9]>
+    <script src="{% static 'js/vendor/html5shiv.min.js' %}"></script>
+    <![endif]-->
+</head>
 
-      <a href="https://twitter.com/drinkliquorpark"><button class="btn btn-large btn-twitter"><i class="fa fa-twitter"></i> | Follow on Twitter</button></a>
+<body>
+    <!--[if lt IE 8]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- load bg image first -->
+    <img src="{% static 'img/bg.jpg' %}" style="display: none;"/>
 
-      <a href="mailto:shop@drinkliquorpark.com" class="white"><button class="btn btn-large btn-contact grey"><i class="fa fa-envelope"></i> | Email the shop</button></a>
+    <header class="container">
+        <div class="row">
+            <div class="col-sm-7">
+                <h1><img class="logo" src="{% static 'img/LiquorPark_Logo_660.png' %}" alt="Liquor Park Logo"/></h1>
+            </div>
+            <div class="contact col-sm-5">
+                <div class="socialMedia">
+                    <a href="https://www.facebook.com/drinkliquorpark" class="sprite fbIcon">Facebook</a>
+                    <a href="https://twitter.com/drinkliquorpark" class="sprite twitterIcon">Twitter</a>
+                    <a href="https://www.instagram.com/liquorpark1937/" class="sprite instaIcon">Instagram</a>
+                </div>
+                <div class="contactInfo">
+                    <p>{{ hours.current }}</p>
+                    <address>1937 W. North Ave., Chicago, IL</address>
+                    <p class="tel">(773) 360-5536</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container">
+        <section id="Content_Slider" class="row">
+            <div class="sliderContain col-sm-12">
+                <div class="flexslider card">
+                    <ul class="slides">
+                        <li><img src="{% static 'img/slider/slide1.png' %}" /></li>
+                        <li><img src="{% static 'img/slider/slide2.png' %}" /></li>
+                        <li><img src="{% static 'img/slider/slide3.png' %}" /></li>
+                        <li><img src="{% static 'img/slider/slide4.png' %}" /></li>
+                        <li><img src="{% static 'img/slider/slide5.png' %}" /></li>
+                        <li><img src="{% static 'img/slider/slide6.png' %}" /></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="About_Us" class="row">
+            <h2 class="col-sm-12"></h2>
+            <p class="col-sm-6">At Liquor Park we’re passionate about thoughtful, carefully crafted beverages. By tapping our combined twenty years’ experience in the Chicago industry, we’ve curated a collection of cult-favorite beers, sought-after spirits, and small-batch wines from around the world, including artisan and made-in-the-Midwest products you can’t get just anywhere.</p>
+            <p class="col-sm-6">Our shelves are stocked and we’re ready to deliver spot-on pairings and killer recommendations for any palate, budget, or occasion. Come find us in the heart of Wicker Park–Bucktown, just east of the intersection of North, Damen, and Milwaukee Avenues at 1937 West North Avenue.
+                <br> E-mail: <a href="mailto:shop@drinkliquorpark.com">shop@drinkliquorpark.com</a></p>
+        </section>
+        <section id="Hours_Location" class="row">
+            <h2 class="col-sm-12">Shop Hours and Location</h2>
+            <div class="hoursContain col-sm-3">
+                <div class="hoursInner">
+                    <table class="hoursTable">
+                        <tbody>
+                            {% for hour in hours %}
+                            <tr {% if hour.today %}class="today"{% endif %}>
+                                <td scope="row">{{ hour.dow }}</td>
+                                <td>{{ hour.open }} - {{ hour.close }}</td>
+                                <td class="extra">
+                                    {% if hour.open_now %}Open
+                                    {% elif hour.today %}Closed
+                                    {% endif %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="mapContain col-sm-9">
+                <div class="card">
+                    <!-- Make this map not scrollable -->
+                    <div class="overlay"
+                        onClick="style.pointerEvents='none'"></div>
+                    <iframe
+                        width="100%"
+                        height="340"
+                        frameborder="0"
+                        style="border:0;pointer-event:none;"
+                        src="https://www.google.com/maps/embed/v1/place?q=Liquor%20Park%20chicago%20IL&key=AIzaSyAYpSLGzh67zq3eljSvbf9mFT6Xpc20Bus"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+        <section id="Events" class="row">
+            <h2 class="col-sm-12">Upcoming Events</h2>
+            <!-- Add class eventsScroll if more than 3 listings,
+            remove if 3 or less -->
+            <div class="eventsContainer eventsScroll col-sm-4 alpha">
+                {% for event in events %}
+                <div class="listing"  title="{{ event.description }}">
+                    <h3>{{ event.summary }}</h3>
+                    {% if event.start.dateTime %}
+                    <div class="date">
+                        {{ event.start.date }},
+                        {{ event.start.dateTime }} -
+                        {{ event.end.dateTime }}
+                    </div>
+                    {% elif event.start.date %}
+                    <div class="date">{{ event.start.date }}</div>
+                    {% endif %}
+                    <small>{{ event.description }}</small>
+                </div>
+                {% empty %}
+                <div class="noEvent listing">No upcoming events</div>
+                {% endfor %}
+            </div>
+            <div class="calendarContain col-sm-8">
+                <div class="card">
+                    <iframe src="https://www.google.com/calendar/embed?src=drinkliquorpark.com_vo211klng2c69ho2lafbqr91io%40group.calendar.google.com&ctz=America/Chicago&showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;wkst=1&amp;bgcolor=%23ffffff&amp;ctz=America%2FChicago" style=" border-width:0 " width="100%" height="350" frameborder="0" scrolling="no"></iframe>
+                </div>
+            </div>
+        </section>
+        <section id="Proprietors" class="row">
 
-    </p>
-  </div>
+            <h2 class="col-sm-12">Proprietors</h2>
 
-  <div class="row marketing">
-    <p class="lead">
-    I had been working at Life's a Cabernet for about three years when my boss mentioned to me he was thinking about selling the shop in order to put more of his focus into a new business he’d started. I loved everything about the shop—what we sell, the community, and the customers—so to me this sounded like a great opportunity to take the helm.
-    </p>
-    <p class="lead">
-    In order to realize this dream, I reached out to some friends who each had a ton of experience in the different areas necessary to run a successful liquor boutique. Paul, an established member of the Chicago beer community whose knowledge of craft brews runs deep, was the first person I called. John, Paul’s father, is a second-generation entrepreneur and CPA who has started a number of successful businesses and also teaches entrepreneurship at Northern Illinois University’s MBA school. And Paul's brother Adam is a seasoned web developer and beer enthusiast, and I knew he’d be exactly the person to keep us up-to-date with our website and our inventory and sales systems.
-    <p class="lead">
-    We’re transforming Life’s a Cabernet into Liquor Park. I’m proud to work with this amazing team to bring truly special craft beers, wines, and spirits to our neighborhood.
-    </p>
-    <p>
-    Janel Syron<br/>
-    Sommelier and Proprietor, Liquor Park
-    </p>
-  </div>
+            <div class="col-lg-6">
+                <h3><a href="mailto:janel@drinkliquorpark.com">Janel Syron</a></h3>
+                <p>
+                    Janel managed the buying and operations of Life's A Cabernet for three years. When the opportunity arose to take over the store as owner, she drank it up. Janel is Liquor Park’s resident authority on all things wine.
+                </p>
+                <p>
+                    Janel is an International Sommelier Guild–certified sommelier who has built a dedicated clientele slinging wine for more than ten years across the Chicagoland area. Tapping her experience and expertise, she delivers spot-on pairing advice and killer recommendations for any palate, budget, or occasion.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <h3><a href="mailto:paul@drinkliquorpark.com">Paul Wonak</a></h3>
+                <p>
+                    With eight years of experience in the Chicago craft brewing scene, Paul’s the beer guy at Liquor Park. After experimenting with home brewing in college, he was Beer Manager and then Liquor Department Manager at Chicago’s Gold Coast Whole Foods. Most recently, he was repping Two Brothers Brewing Company both across Chicago and to new distribution markets outside Illinois.
+                </p>
+                <p>
+                    In order to take craft beer and spirits to a new level in Wicker Park, Paul brings knowledge, experience, and no attitude... probably.
+                </p>
+            </div>
+        </section>
+        <section id="Wine_Club" class="row">
+            <h2 class="col-sm-12">Liquor Park Wine Club</h2>
+            <div class="tableLayout">
+                <div class="col-sm-6 wineClubImg card"></div>
+                <div class="col-sm-6 wineClubContain">
+                    <div class="aboutWineClub">
+                        <h3>The Liquor Park Wine Club is the best way to experience our wines!</h3>
+                        <p>Once a month we hand-select a few great wines and set them aside exclusively for members of the Liquor Park Wine Club. Our monthly selections feature limited releases and staff favorites that are sure to please, and from time to time we'll introduce your palate to something a bit more esoteric, unexpected, and exciting.</p>
+                        <p>In addition to our great monthly wine selections, Wine Club members also receive:</p>
+                            <ul>
+                            <li>10% off everything in the shop... EVERY DAY!
+                            <li>At least 15% off all Wine Club features that month.
+                            <li>15% off case purchases of wine.
+                            </ul>
+                        <p>The Liquor Park Wine Club offers two membership levels:</p>
+                        <h3>Intramural League ($39.99/month)</h3>
+                        <p>Joining the Intramural League is a perfect way to get in the game. Each month you'll receive two bottles of wine that have a total retail value of $50 to $60. The wines we choose for this level have a story to tell, pair with the season, or are just a great score.</p>
+                        <h3>Varsity Team ($89.99/month)</h3>
+                        <p>Our elite members belong on the Varsity Team. For the wines at this level, think unique and special: limited production and limited distribution, California cult wines, and estate-grown grapes. Each month you'll get two bottles of wine with a total retail value of $100 to $120, and occasionally we'll offer a bottle of unique scotch or whiskey instead of wine.</p>
 
+                        <p>Stop by the store to join the Club!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="Press_Mentions" class="row">
+            <h2 class="col-sm-12">What Other People Are Saying</h2>
+            <div class="pressContainer">
+                {% for article in articles%}
+                <div class="col-lg-4">
+                    <div class="listing">
+                        <h3>{{ article.site_name }}</h3>
+                        <p>
+                          <b>{{ article.title }}</b>:
+                        </p>
+                        <p>
+                          {{ article.description|safe }}
+                        </p>
+                        <a class="readMore" href="{{ article.url }}">Read More &gt;</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+    <footer class="container">
+        <div class="row">
+            <div class="col-sm-12">© Liquor Park, LLC 2015 | <a href="http://mikethone.com/" target="_blank"> site by Mike Thone</a>
+            </div>
+        </div>
+    </footer>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>
+    window.jQuery || document.write('<script src="{% static 'js/vendor/jquery-1.11.0.min.js' %}"><\/script>')
+    </script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script>
+    //     (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+    //     function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+    //     e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+    //     e.src='//www.google-analytics.com/analytics.js';
+    //     r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+    //     ga('create','UA-58096887-1');ga('send','pageview');
+    //
+    </script>
+</body>
 
-{% endblock %}
+</html>
