@@ -27,7 +27,10 @@ DEBUG = False
 
 TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '.drinkliquorpark.com',
+    '.elasticbeanstalk.com.',
+]
 
 
 # Application definition
