@@ -29,7 +29,7 @@ TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = [
     '.drinkliquorpark.com',
-    '.elasticbeanstalk.com.',
+    '.elasticbeanstalk.com',
 ]
 
 
