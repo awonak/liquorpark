@@ -23,11 +23,14 @@ SECRET_KEY = 'yls)_rq!ifat4!td*k4=d6wpa17w-qfjf0^@a!0hj=n4(w7j#='
 CAL_API_KEY = os.getenv('CAL_API_KEY', 'AIzaSyDBruUyXT4ongYpGmGGLymWGKI1KCwA_X8')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.getenv('LP_DEBUG', 1))
+DEBUG = bool(os.environ.get('LP_DEBUG', False))
 
 TEMPLATE_DEBUG = DEBUG
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '.drinkliquorpark.com',
+    '.elasticbeanstalk.com',
+]
 
 
 # Application definition
