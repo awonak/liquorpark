@@ -65,7 +65,7 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 import dj_database_url
-DATABASES = {'default': dj_database_url.parse('sqlite:///db.sqlite3')}
+DATABASES = {'default': dj_database_url.config(default='sqlite:///db.sqlite3')}
 
 CACHES = {
     'default': {
