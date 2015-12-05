@@ -63,7 +63,7 @@ class BusinessHours(list):
         cur = self[now.weekday()]
         if now.hour < cur._open.hour:
             return "We'll be open at {} today.".format(cur.open)
-        elif now.hour > cur._close.hour:
+        elif now.hour >= cur._close.hour:
             tomorrow = now + timedelta(days=1)
             tom = self[tomorrow.weekday()]
             return "Closed. Open tomorrow at {}.".format(tom.open)

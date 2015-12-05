@@ -102,6 +102,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP

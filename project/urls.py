@@ -1,14 +1,18 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 from django.contrib import admin
+from django.views.generic import TemplateView, RedirectView
 
 admin.autodiscover()
 
-urlpatterns = patterns('',
-    url(r'^$', 'app.views.index', name='index'),
-    url(r'^contact$', 'app.views.contact', name='contact'),
-    url(r'^contact/thanks$', 'app.views.contact_thanks', name='contact-thanks'),
+urlpatterns = [
+    # app
+    url(r'^', include('app.urls')),
 
-    url(r'^clover/margincalc$', 'app.views.margincalc', name='margincalc'),
+    # static
+    url(r'^favicon.ico', RedirectView.as_view(url='/static/favicon.ico')),
+    url(r'^robots.txt', TemplateView.as_view(template_name='robots.txt',
+        content_type='text/plain')),
 
+    # admin
     url(r'^a/', include(admin.site.urls)),
-)
+]
