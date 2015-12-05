@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'yls)_rq!ifat4!td*k4=d6wpa17w-qfjf0^@a!0hj=n4(w7j#='
+SECRET_KEY = os.getenv('SECRET_KEY', 'abc')
 
 # Browser API Key:
 CAL_API_KEY = os.getenv('CAL_API_KEY', 'AIzaSyDBruUyXT4ongYpGmGGLymWGKI1KCwA_X8')
@@ -28,6 +28,7 @@ DEBUG = bool(os.environ.get('LP_DEBUG', False))
 TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = [
+    'localhost',
     '.drinkliquorpark.com',
     '.elasticbeanstalk.com',
 ]
@@ -63,12 +64,8 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+import dj_database_url
+DATABASES = {'default': dj_database_url.config(default='sqlite:///db.sqlite3')}
 
 CACHES = {
     'default': {
