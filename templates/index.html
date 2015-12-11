@@ -131,7 +131,7 @@
             remove if 3 or less -->
             <div class="eventsContainer eventsScroll col-sm-4 alpha">
                 {% for event in events %}
-                <div class="listing"  title="{{ event.description }}">
+                <div class="listing">
                     <h3>{{ event.summary }}</h3>
                     {% if event.start.dateTime %}
                     <div class="date">
