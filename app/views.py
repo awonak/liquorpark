@@ -25,11 +25,17 @@ def gift_card(request):
         form = GiftCardForm(request.POST)
         if form.is_valid():
             context.update({
-                'name': form.cleaned_data['subject'],
-                'amount': form.cleaned_data['message'],
+                'name': form.cleaned_data['name'],
+                'amount': form.cleaned_data['amount'],
             })
 
     return render(request, 'gift_card.html', context)
+
+
+def gift_card_payment(request):
+    context = {}
+
+    return render(request, 'gift_card_payment.html', context)
 
 
 def margincalc(request):

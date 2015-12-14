@@ -147,14 +147,14 @@
                 {% csrf_token %}
                 <div class="form-group col-sm-7">
                     <label for="id_name">From</label>
-                    <input type="text" class="form-control" id="id_name" placeholder="Your Name">
+                    <input type="text" class="form-control" id="id_name" name="name" placeholder="Your Name">
                 </div>
 
                 <div class="form-group col-sm-7">
                     <label for="id_amount">Gift Card Amount</label>
                     <div class="input-group">
                         <div class="input-group-addon">$</div>
-                        <input type="text" class="form-control" id="id_amount" placeholder="100">
+                        <input type="text" class="form-control" id="id_amount" name="amount" placeholder="100">
                         <div class="input-group-addon">.00</div>
                     </div>
                     <span class="help-block">Minimum of $10. Maximum of $1000.</span>
@@ -164,22 +164,6 @@
                     <label for="next"></label>
                     <div><input type="submit" class="btn btn-default" id="next" value="Next"></div>
                 </div>
-            </form>
-
-        </section>
-
-
-
-        <section id="Gift_Cards" class="row">
-            <h2 class="col-sm-12">Liquor Park Gift Cards</h2>
-
-            <p class="col-sm-6">
-                Godard artisan affogato flexitarian normcore franzen. Whatever venmo fap heirloom, aesthetic viral gluten-free echo park tumblr. Lomo kitsch neutra, freegan wayfarers normcore squid VHS fanny pack williamsburg raw denim yuccie aesthetic.
-                Ennui church-key knausgaard, fap semiotics cronut intelligentsia farm-to-table retro mumblecore. Pour-over tumblr migas viral mustache hoodie quinoa helvetica crucifix, kinfolk slow-carb trust fund cronut pop-up. Single-origin coffee tilde butcher pickled godard DIY skateboard offal.
-            </p>
-            <form method="post" action="/gift-card" class="col-sm-6">
-                {% csrf_token %}
-               {{ gift_card_form }}
             </form>
 
         </section>
