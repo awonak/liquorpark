@@ -104,6 +104,8 @@ Listen 443
   SSLEngine on
   SSLCertificateFile "/etc/pki/tls/certs/server.crt"
   SSLCertificateKeyFile "/etc/pki/tls/certs/server.key"
+  SSLCertificateChainFile "/etc/pki/tls/certs/chain.pem"
+
 </VirtualHost>
 ```
 
@@ -145,6 +147,12 @@ files:
     group: root
     authentication: "S3Auth"
     source: https://liquorpark.s3.amazonaws.com/ssl/server.key
+  "/etc/pki/tls/certs/chain.pem" :
+    mode: "000400"
+    owner: root
+    group: root
+    authentication: "S3Auth"
+    source: https://liquorpark.s3.amazonaws.com/ssl/chain.pem
 ```
 
 Finally, configure the Resources (I don't think this worked, I needed to
