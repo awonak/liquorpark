@@ -28,7 +28,6 @@ DEBUG = bool(os.environ.get('LP_DEBUG', False))
 TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = [
-    '*',
     'localhost',
     '.drinkliquorpark.com',
     '.elasticbeanstalk.com',

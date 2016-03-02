@@ -1,5 +1,6 @@
 #!/bin/bash
-python manage.py collectstatic --noinput  # Collect static files
+python manage.py collectstatic --noinput
+python manage.py migrate --noinput
 
 exec gunicorn project.wsgi:application \
     --name liquorpark \
