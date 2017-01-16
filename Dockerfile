@@ -1,3 +1,3 @@
 FROM python:2.7-onbuild
-EXPOSE 8000
+EXPOSE 8080
 CMD ["./app.sh"]
