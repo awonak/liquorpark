@@ -321,15 +321,12 @@ header .tel {
 .hoursContain td {
     padding: 5px;
     white-space: nowrap;
+
 }
 
 .hoursContain th {
     text-align: left;
     padding-left: 0;
-}
-
-.hoursContain tr.today td {
-    color: white;
 }
 
 .overlay {
@@ -438,6 +435,14 @@ header .tel {
     text-decoration: underline;
     bottom: 10px;
     right: 10px;
+}
+
+#COVID-19 {
+    margin-bottom: 16px;
+}
+
+#COVID-19 .pressContainer .listing {
+    min-height: inherit;
 }
 
 
