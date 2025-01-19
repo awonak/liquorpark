@@ -437,12 +437,17 @@ header .tel {
     right: 10px;
 }
 
-#COVID-19 {
+#news {
     margin-bottom: 16px;
 }
 
-#COVID-19 .pressContainer .listing {
-    min-height: inherit;
+#news .card {
+    margin-left:10px;
+    text-align: center;
+}
+
+#news .pressContainer .text {
+    font-size: 18px;
 }
 
 
@@ -455,6 +460,13 @@ footer div {
 @media (min-width: 1200px) {
     header address:after {
         content: " | ";
+    }
+    .pressContainer img.news {
+        max-height: 260px;
+    }
+    #news .pressContainer .text {
+        font-size: 18px;
+        min-height: 260px;
     }
 }
 
@@ -494,6 +506,12 @@ footer div {
     }
     .pressContainer .listing {
         min-height: 260px;
+    }
+    .pressContainer img.news {
+        max-height: 260px;
+    }
+    #news .pressContainer .text {
+        font-size: 18px;
     }
     .hoursContain .hoursInner {
         padding: 15px 5px 15px 15px;
